@@ -1,0 +1,52 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title class="texto" style="text-align: center;">Agregar</ion-title>
+    <ion-button color="dark" expand="block" fill="outline" (click)="volver()">Volver</ion-button>
+  </ion-toolbar>
+
+</ion-header>
+
+<ion-content [fullscreen]="true" class="fondo-imagen">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large"   style="text-align: center;">Agregar</ion-title>
+   
+    </ion-toolbar>
+  </ion-header>
+  <ion-content >
+    <ion-card>
+      <ion-card-header >
+        <ion-card-title style="text-align: center;">Agregar Producto</ion-card-title>
+        
+      </ion-card-header>
+      <ion-card-content>
+        <ion-list>
+          <div>
+           <div  class="ion-text-center"><ion-label style="font-size: 12px; " >Nombre Del Producto</ion-label></div> 
+           <ion-input label-placement="floating" fill="outline" ></ion-input>
+          </div>
+          <div class="espacio">
+            <div  class="ion-text-center"><ion-label style="font-size: 12px; " >Descripcion Del Producto</ion-label></div> 
+            <ion-input label-placement="floating" fill="outline" ></ion-input>
+           </div>
+           <div class="espacio">
+            <div  class="ion-text-center"><ion-label style="font-size: 12px; " >Imagen Del Producto</ion-label></div> 
+              <div class="a espacio"><ion-fab-button>
+                <ion-icon name="add"  ></ion-icon>
+              </ion-fab-button></div>
+           </div>
+           <div class="espacio2">
+            <div  class="ion-text-center "><ion-label style="font-size: 12px; " >Precio del Producto</ion-label></div> 
+            <ion-input label-placement="floating" fill="outline" ></ion-input>
+           </div>
+
+           <div class="espacio2 ion-justify-content-center">
+            <ion-button  size="3" color="dark" class="a" >Agregar Producto</ion-button>
+
+           </div>
+           
+        </ion-list>
+      </ion-card-content>
+    </ion-card>
+  </ion-content>
+</ion-content>

@@ -1,0 +1,93 @@
+
+<ion-content>
+  <ion-menu side="end" contentId="main-content">
+    <ion-header>
+      <ion-toolbar>
+        <ion-title class="ion-text-center">CONTENIDOS</ion-title>
+      </ion-toolbar>
+    </ion-header>
+    <ion-content class="ion-padding">
+      <ion-grid>
+        <ion-row>
+        <ion-col size="12">
+          <ion-button expand="block" color="dark">
+            <ion-icon slot="start" name="star"></ion-icon>
+            Diseños
+          </ion-button>
+        </ion-col>
+        <ion-col size="12" >
+          <ion-button expand="block" color="dark" >
+            <ion-icon slot="start" name="apps-outline"></ion-icon>
+            Colecciones
+          </ion-button>
+        </ion-col>
+        <ion-col size="12">
+          <ion-button expand="block" color="dark">
+
+            <ion-icon slot="start" name="chatbubble-ellipses-outline"></ion-icon>
+            Blog/Foro
+          </ion-button>
+        </ion-col>
+        <ion-col size="12">
+
+
+          <ion-accordion-group>
+            <ion-accordion value="first">
+              <ion-item slot="header" color="light">
+                <ion-label>Sesion</ion-label>
+              </ion-item>
+              <div class="ion-padding" slot="content">
+                <ion-button expand="block" color="dark" href="/iniciar">
+
+                <ion-icon slot="start" name="person-circle-outline"></ion-icon>
+                Iniciar Sesion
+              
+              </ion-button></div>
+              <div class="ion-padding" slot="content">
+                <ion-button expand="block" color="dark" href="/registrarse">
+
+                <ion-icon slot="start" name="person-add-outline"></ion-icon>
+                Registrarse
+              
+              </ion-button></div>
+            </ion-accordion>
+
+            <ion-accordion value="second" style="margin-top: 20px;">
+              <ion-item slot="header" color="light">
+                <ion-label>Administracion</ion-label>
+              </ion-item>
+              <div class="ion-padding" slot="content">
+                <ion-button expand="block" color="dark" href="/menu">
+
+                <ion-icon slot="start" name="grid-outline"></ion-icon>
+                
+                Menu
+              
+              </ion-button></div>
+              
+            </ion-accordion>
+          </ion-accordion-group>
+        </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-content>
+  </ion-menu>
+  <div class="ion-page" id="main-content" style="box-shadow: 10px 5px 5px black;">
+    <ion-header>
+
+      <div class="d-flex " style="padding-top: 35px;">
+        <ion-avatar style="height: 50px;
+        width: 50px;">
+          <img alt="Silhouette of a person's head" src="https://ionicframework.com/docs/img/demos/avatar.svg" />
+        </ion-avatar>
+        <h2>3D-GALLERY</h2>
+        <ion-buttons>
+          <ion-menu-button></ion-menu-button>
+        </ion-buttons>
+      </div>
+
+
+    </ion-header>
+    <ion-content class="ion-padding"><H1 class="ion-text-center">3D-GALLERY LO MEJOR...</H1></ion-content>
+  </div>
+</ion-content>

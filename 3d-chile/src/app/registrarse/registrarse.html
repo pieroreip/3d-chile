@@ -1,0 +1,40 @@
+<ion-header [translucent]="true">
+    <ion-toolbar class="cabeza">
+      <ion-button fill="clear" slot="start" (click)="volver()"><<<</ion-button>
+    </ion-toolbar>
+  </ion-header>
+  
+  <ion-content [fullscreen]="true">
+    <div class="fondo">
+      <div class="logo">
+        <img src="../../assets/icon/logo.png" alt="logo">
+      </div>
+      <div class="envoltura">
+        <h1 style="background-color: rgb(175, 175, 175); border-radius: 20px; padding-bottom: 10px;
+        box-shadow: 2px 2px 2px black;
+        ">Registrate</h1>
+        <ion-list class="lista">
+          <ion-item class="item1">
+            <ion-input type="label" placeholder="Nombre"></ion-input>
+          </ion-item>
+          <ion-item class="item1">
+            <ion-input type="email" placeholder="Email"></ion-input>
+          </ion-item>
+          <ion-item class="item1">
+            <ion-input type="password" placeholder="Contraseña"></ion-input>
+          </ion-item>
+          <ion-item class="item1">
+            <ion-input type="password" placeholder="Confirma Contraseña"></ion-input>
+          </ion-item>
+          <ion-item class="item3">
+            <ion-label>¿Ya Tienes Una Cuenta?</ion-label>
+            <ion-button fill="clear" class="ingresar" href="/iniciar" color="dark">Inicia Sesion</ion-button>
+          </ion-item>
+          <div class="boton-ing">
+            <ion-button shape="round" color="dark" href="/login">Registrate</ion-button>
+          </div>
+        </ion-list>
+      </div>
+    </div>
+  </ion-content>
+  

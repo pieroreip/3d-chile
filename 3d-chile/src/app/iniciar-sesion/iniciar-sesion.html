@@ -1,0 +1,34 @@
+<ion-header [translucent]="true">
+    <ion-toolbar class="cabeza">
+      <ion-button fill="clear" slot="start" (click)="volver()"><<<</ion-button>
+    </ion-toolbar>
+  </ion-header>
+  
+  <ion-content [fullscreen]="true">
+    <div class="fondo">
+      <div class="logo">
+        <img src="../../assets/icon/logo.png" alt="logo">
+      </div>
+      <div class="envoltura">
+        
+        <ion-list class="lista">
+          <h1 style="color: aliceblue;">INICIAR SESION</h1>
+          <ion-item class="item1">
+            <ion-input type="email" placeholder="email@domain.com"></ion-input>
+          </ion-item>
+          <ion-item class="item2">
+            <ion-input type="password" placeholder="contraseña"></ion-input>
+          </ion-item>
+          <ion-item class="item3">
+            <ion-label>¿No Tienes Una Cuenta?</ion-label>
+            <ion-button fill="clear"color="dark" href="/registrarse">Registrate</ion-button>
+          </ion-item>
+          <div class="boton-ing">
+            <ion-button shape="round" color="dark">Ingresar</ion-button>
+          </div>
+        </ion-list>
+      </div>
+    </div>
+  </ion-content>
+  
+  
