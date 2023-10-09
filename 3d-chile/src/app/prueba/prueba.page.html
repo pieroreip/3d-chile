@@ -1,0 +1,14 @@
+
+<ion-content [fullscreen]="true">
+
+<ion-input label="nombre" [(ngModel)]="data.nombre"></ion-input>
+<ion-input label="descripcion" [(ngModel)]="data.descripcion"></ion-input>
+<ion-input label="precio" [(ngModel)]="data.precio"></ion-input>
+
+<ion-button (click)="crearDocumento()">cccc</ion-button>
+
+<div *ngFor="let p of productos">
+  <h1>{{p.nombre}}</h1>
+</div>
+
+</ion-content>

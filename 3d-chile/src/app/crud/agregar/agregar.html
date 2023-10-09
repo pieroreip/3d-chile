@@ -23,11 +23,11 @@
         <ion-list>
           <div>
            <div  class="ion-text-center"><ion-label style="font-size: 12px; " >Nombre Del Producto</ion-label></div> 
-           <ion-input label-placement="floating" fill="outline" ></ion-input>
+           <ion-input label-placement="floating" fill="outline" [(ngModel)]="data.nombre"></ion-input>
           </div>
           <div class="espacio">
             <div  class="ion-text-center"><ion-label style="font-size: 12px; " >Descripcion Del Producto</ion-label></div> 
-            <ion-input label-placement="floating" fill="outline" ></ion-input>
+            <ion-input label-placement="floating" fill="outline" [(ngModel)]="data.descripcion"></ion-input>
            </div>
            <div class="espacio">
             <div  class="ion-text-center"><ion-label style="font-size: 12px; " >Imagen Del Producto</ion-label></div> 
@@ -37,11 +37,11 @@
            </div>
            <div class="espacio2">
             <div  class="ion-text-center "><ion-label style="font-size: 12px; " >Precio del Producto</ion-label></div> 
-            <ion-input label-placement="floating" fill="outline" ></ion-input>
+            <ion-input label-placement="floating" fill="outline" [(ngModel)]="data.precio"></ion-input>
            </div>
 
            <div class="espacio2 ion-justify-content-center">
-            <ion-button  size="3" color="dark" class="a" >Agregar Producto</ion-button>
+            <ion-button  size="3" color="dark" class="a" (click)="crearDocumento()">Agregar Producto</ion-button>
 
            </div>
            

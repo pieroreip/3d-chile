@@ -12,73 +12,22 @@
         <ion-title size="large" style="text-align: center;">Lista de Productos</ion-title>
       </ion-toolbar>
     </ion-header>
-    <ion-content>
-      <ion-list>
+  
         <!-- Primer elemento de la lista -->
-        <ion-item>
-          <ion-thumbnail slot="start">
-            <img src=".././assets/icon/1.png" alt="Producto 1">
-          </ion-thumbnail>
-          <ion-label>
-            <h2>Producto 1</h2>
-            <p>Mario 3D</p>
-            <p>Precio: $10.000</p>
-          </ion-label>
-        </ion-item>
+      <ion-list *ngFor="let x of productos">
+        <ion-item-group>
+          <ion-item>
+            <div style="display: flex; flex-direction: column; text-align: center;">
+              <h1><strong>{{x.nombre}}</strong></h1>
   
-        <!-- Segundo elemento de la lista -->
-        <ion-item>
-          <ion-thumbnail slot="start">
-            <img src=".././assets/icon/2.png" alt="Producto 2">
-          </ion-thumbnail>
-          <ion-label>
-            <h2>Producto 2</h2>
-            <p>Among Us 3D</p>
-            <p>Precio: $15.000</p>
-          </ion-label>
-        </ion-item>
   
-        <!-- Tercer elemento de la lista -->
-        <ion-item>
-          <ion-thumbnail slot="start">
-            <img src=".././assets/icon/3.png" alt="Producto 3">
-          </ion-thumbnail>
-          <ion-label>
-            <h2>Producto 3</h2>
-            <p>The RockChu 3D</p>
-            <p>Precio: $12.000</p>
-          </ion-label>
-        </ion-item>
-  
-        <!-- Cuarto elemento de la lista -->
-        <ion-item>
-          <ion-thumbnail slot="start">
-            <img src=".././assets/icon/4.png" alt="Producto 4">
-          </ion-thumbnail>
-          <ion-label>
-            <h2>Producto 4</h2>
-            <p>Alienigena 3D</p>
-            <p>Precio: $9.000</p>
-          </ion-label>
-        </ion-item>
-  
-        <!-- Quinto elemento de la lista -->
-        <ion-item>
-          <ion-thumbnail slot="start">
-            <img src=".././assets/icon/5.png" alt="Producto 5">
-          </ion-thumbnail>
-          <ion-label>
-            <h2>Producto 5</h2>
-            <p>Fin el humano H.D.A</p>
-            <p>Precio: $13.000</p>
-          </ion-label>
-        </ion-item>
+              <p>{{x.descripcion}}</p>
+              <p><strong>{{x.precio}}</strong></p>
+            </div>
+            
+          </ion-item>
+        </ion-item-group>
+        
       </ion-list>
-
-      <ion-button (click)="obtenerProductos()">
-        ooooooo
-      </ion-button>
-      <div id="lista"></div>
-    </ion-content>
   </ion-content>
   
