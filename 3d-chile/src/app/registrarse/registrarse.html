@@ -1,10 +1,11 @@
 <ion-header [translucent]="true">
     <ion-toolbar class="cabeza">
-      <ion-button fill="clear" slot="start" (click)="volver()"><<<</ion-button>
+
     </ion-toolbar>
   </ion-header>
-  
+
   <ion-content [fullscreen]="true">
+    <form (ngSubmit)="register()">
     <div class="fondo">
       <div class="logo">
         <img src="../../assets/icon/logo.png" alt="logo">
@@ -15,26 +16,23 @@
         ">Registrate</h1>
         <ion-list class="lista">
           <ion-item class="item1">
-            <ion-input type="label" placeholder="Nombre"></ion-input>
+            <ion-input [(ngModel)]="email" name="email" type="email" required></ion-input>
           </ion-item>
           <ion-item class="item1">
-            <ion-input type="email" placeholder="Email"></ion-input>
-          </ion-item>
-          <ion-item class="item1">
-            <ion-input type="password" placeholder="Contraseña"></ion-input>
-          </ion-item>
-          <ion-item class="item1">
-            <ion-input type="password" placeholder="Confirma Contraseña"></ion-input>
+            <ion-input [(ngModel)]="password" name="password" type="password" required></ion-input>
           </ion-item>
           <ion-item class="item3">
             <ion-label>¿Ya Tienes Una Cuenta?</ion-label>
             <ion-button fill="clear" class="ingresar" href="/iniciar" color="dark">Inicia Sesion</ion-button>
           </ion-item>
           <div class="boton-ing">
-            <ion-button shape="round" color="dark" href="/login">Registrate</ion-button>
+            <ion-button expand="full" type="submit">Registrar</ion-button>
           </div>
         </ion-list>
       </div>
     </div>
+    <button mat-fab extended>
+      holachaval
+    </button>
+    </form>
   </ion-content>
-  

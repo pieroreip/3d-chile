@@ -1,21 +1,44 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { RouteReuseStrategy } from '@angular/router';
-
+import { FormsModule } from '@angular/forms';
 import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
+
+
+// Importaciones relacionadas con AngularFire
+import { AngularFireModule } from '@angular/fire/compat';
+import { AngularFireAuthModule } from "@angular/fire/compat/auth";
+import { AngularFireStorageModule } from '@angular/fire/compat/storage';
+import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
+import { AngularFireDatabaseModule } from '@angular/fire/compat/database';
+import { environment } from '../environments/environment';
+
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
-import {AngularFireModule} from '@angular/fire/compat';
-import { environment } from 'src/environments/environment';
+import { RouteReuseStrategy } from '@angular/router';
 
-import {AngularFirestoreModule} from '@angular/fire/compat/firestore';
+// @ts-ignore
+export interface DocumentSnapshotExists<T> extends firebase.firestore.DocumentSnapshot {
+  // ...
+}
+
 
 @NgModule({
-  declarations: [AppComponent],
-  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule,
-  AngularFireModule.initializeApp(environment.firebaseConfig), AngularFirestoreModule],
+  declarations: [
+    AppComponent,
+    // ... otros componentes
+  ],
+  imports: [
+    BrowserModule,
+    IonicModule.forRoot(),
+    AppRoutingModule,
+    FormsModule,
+
+    // Inicialización de AngularFire y módulos relacionados
+    AngularFireModule.initializeApp(environment.firebaseConfig),
+    AngularFireAuthModule,AngularFirestoreModule
+  ],
   providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
-  bootstrap: [AppComponent],
+  bootstrap: [AppComponent]
 })
-export class AppModule {}
+export class AppModule { }
