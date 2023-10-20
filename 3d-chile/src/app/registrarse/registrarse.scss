@@ -1,6 +1,7 @@
 .cabeza{
-    --background: black;
+    --background: rgb(0, 0, 0);
     color: #D9D9D9;
+  
   }
   .fondo{
     height: 100vh;
@@ -44,4 +45,7 @@
     text-align: center;
     color: black;
     padding-top: 10px; 
+  }
+  .item1>ion-input{
+    color:#D9D9D9
   }
