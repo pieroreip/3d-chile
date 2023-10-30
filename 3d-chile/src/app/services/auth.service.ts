@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/compat/auth';  // Importación del módulo de autenticación de AngularFire
 import { AlertController } from '@ionic/angular';
+
+import {getDatabase, set, ref,} from 'firebase/database';
 // @ts-ignore
 export interface DocumentSnapshotExists<T> extends firebase.firestore.DocumentSnapshot {
   // ...
@@ -11,7 +13,19 @@ export interface DocumentSnapshotExists<T> extends firebase.firestore.DocumentSn
 })
 export class AuthService {
 
-  constructor(private afAuth: AngularFireAuth, private alertController : AlertController) {}  // Inyectamos AngularFireAuth
+  constructor(private afAuth: AngularFireAuth, private alertController : AlertController) {}  
+  
+  // Inyectamos AngularFireAuth
+
+  getProd(userId:string, nombre:string, descripcion:string, precio:number){
+    const db=getDatabase();
+    set(ref(db,'Productos/'+userId),{
+      nombre:nombre,
+      descripcion:descripcion,
+      precio:precio
+    });
+
+  }
 
   async signIn(email: string, password: string): Promise<boolean> {
     try {

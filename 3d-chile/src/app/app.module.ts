@@ -35,7 +35,7 @@ export interface DocumentSnapshotExists<T> extends firebase.firestore.DocumentSn
     FormsModule,
 
     // Inicialización de AngularFire y módulos relacionados
-    AngularFireModule.initializeApp(environment.firebaseConfig),
+    AngularFireModule.initializeApp(environment.firebaseConfig),AngularFireDatabaseModule,
     AngularFireAuthModule,AngularFirestoreModule
   ],
   providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],

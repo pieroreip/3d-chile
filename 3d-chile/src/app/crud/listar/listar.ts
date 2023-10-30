@@ -26,4 +26,8 @@ export class ListarPage implements OnInit{
           this.productos=prod;
         })
       }
+
+      eliminarProducto(prod:Producto){
+        this.database.eliminarProd(prod.id);
+      }
 }

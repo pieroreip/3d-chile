@@ -1,7 +1,10 @@
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
 import { FirestoreService } from '../services/firestore.service';
 import { Producto } from '../modelo/producto';
-
+import {AngularFirestore} from '@angular/fire/compat/firestore'
+import { AngularFireDatabase } from '@angular/fire/compat/database';
+import { AuthService } from '../services/auth.service';
 @Component({
   selector: 'app-prueba',
   templateUrl: './prueba.page.html',
@@ -16,13 +19,19 @@ export class PruebaPage implements OnInit {
     id:''
   }
 
-  productos:Producto[]=[];
+  
+  constructor(private database: FirestoreService, private afs: AngularFireDatabase, private firedata: AuthService,public productos:Observable<any[]>) {
 
-  constructor(private database: FirestoreService) {}
+  }
 
   ngOnInit() {
-    this.getProductos();
+  this.tener();
   }
+  tener(){
+  this.afs.list('Productos').valueChanges().subscribe(res=>{
+    console.log(res);
+  })
+}
   crearDocumento(){
     console.log(this.data)
     /*
@@ -40,10 +49,7 @@ export class PruebaPage implements OnInit {
     console.log('ola se guardo')
   }
 
-  getProductos(){
-    this.database.obtenerColeccion<Producto>('Productos').subscribe(prod=>{
-      console.log(prod);
-      this.productos=prod;
-    })
+  agregar(){
+
   }
 }

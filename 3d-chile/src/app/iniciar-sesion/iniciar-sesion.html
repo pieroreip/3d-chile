@@ -3,32 +3,38 @@
       <ion-button fill="clear" slot="start" (click)="volver()"><<<</ion-button>
     </ion-toolbar>
   </ion-header>
-  
+
   <ion-content [fullscreen]="true">
     <div class="fondo">
       <div class="logo">
         <img src="../../assets/icon/logo.png" alt="logo">
       </div>
+      <form (ngSubmit)="iniciar_sesion()">
       <div class="envoltura">
-        
+
+
         <ion-list class="lista">
           <h1 style="color: aliceblue;">INICIAR SESION</h1>
           <ion-item class="item1">
-            <ion-input type="email" placeholder="email@domain.com"></ion-input>
+            <ion-input [(ngModel)]="email" type="email" name="email" placeholder="email@domain.com" required class="boton"></ion-input>
           </ion-item>
           <ion-item class="item2">
-            <ion-input type="password" placeholder="contraseña"></ion-input>
+            <ion-input [(ngModel)]="password" type="password" name="password" placeholder="contraseña" required class="boton"></ion-input>
           </ion-item>
           <ion-item class="item3">
-            <ion-label>¿No Tienes Una Cuenta?</ion-label>
-            <ion-button fill="clear"color="dark" href="/registrarse">Registrate</ion-button>
+            <ion-label style="color: aliceblue;">¿No Tienes Una Cuenta?</ion-label>
+            <ion-button fill="clear" href="/registrarse" style="--color:blue;">Registrate</ion-button>
           </ion-item>
           <div class="boton-ing">
-            <ion-button shape="round" color="dark">Ingresar</ion-button>
+            <ion-button shape="round" color="dark" type="submit">Ingresar</ion-button>
           </div>
         </ion-list>
+
+
+
       </div>
+    </form>
     </div>
+    <ion-button (click)="prueba()">oo</ion-button>
   </ion-content>
-  
-  
+

@@ -1,4 +1,4 @@
-
+<!--
 <ion-content [fullscreen]="true">
 
 <ion-input label="nombre" [(ngModel)]="data.nombre"></ion-input>
@@ -7,8 +7,21 @@
 
 <ion-button (click)="crearDocumento()">cccc</ion-button>
 
-<div *ngFor="let p of productos">
-  <h1>{{p.nombre}}</h1>
+<div >
+  <h1 *ngFor="let p of productos">{{p.nombre}}</h1>
 </div>
 
+</ion-content>
+
+-->
+<ion-content class="ion-padding">
+  <h1>Funciona</h1>
+  <ion-input [(ngModel)]="data.nombre" placeholder="nombre"></ion-input>
+  <ion-input [(ngModel)]="data.descripcion" placeholder="descripcion"></ion-input>
+  <ion-input [(ngModel)]="data.precio" placeholder="nombre"></ion-input>
+
+  <ion-button fill="outline" (click)="agregar()">agregar</ion-button>
+  <div >
+    
+  </div>
 </ion-content>

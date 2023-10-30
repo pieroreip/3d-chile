@@ -1,11 +1,11 @@
 <ion-header [translucent]="true">
-    <ion-toolbar>
+    <ion-toolbar style="--background:var(--fondo-oscuro)">
         <div style="display: flex; justify-content: center;">
             <ion-button  fill="clear" (click)="volver()">
                 <ion-icon name="arrow-back"></ion-icon>
             </ion-button>
             
-          <ion-title  style="text-align: center; font-size: 15px;">Administrador</ion-title>
+          <ion-title  style="text-align: center; font-size: 15px; color: aliceblue;">Administrador</ion-title>
           <ion-button  fill="clear">
         </ion-button>
         
@@ -24,22 +24,12 @@
     <ion-content class="">
       <ion-grid>
         <ion-row class="ion-justify-content-center espacio ">
-          <ion-col size="6"><ion-button href="/menu/agregar" color="dark" expand="block" fill="outline">Agregar</ion-button></ion-col>
+          <ion-col size="6"><ion-button href="/menu/agregar" expand="block" fill="outline" >Agregar</ion-button></ion-col>
         </ion-row>
       </ion-grid>
       <ion-grid>
         <ion-row class="ion-justify-content-center">
-          <ion-col size="6"><ion-button  href="/menu/eliminar" color="dark" expand="block" fill="outline" class="">Eliminar</ion-button></ion-col>
-        </ion-row>
-      </ion-grid>
-      <ion-grid>
-        <ion-row class="ion-justify-content-center">
-          <ion-col size="6"><ion-button color="dark" expand="block" href="/menu/modificar" fill="outline">Modificar</ion-button></ion-col>
-        </ion-row>
-      </ion-grid>
-      <ion-grid>
-        <ion-row class="ion-justify-content-center">
-          <ion-col size="6"><ion-button color="dark" expand="block" fill="outline" href="/menu/listar">Listar</ion-button></ion-col>
+          <ion-col size="6"><ion-button  expand="block" fill="outline" href="/menu/listar">Listar</ion-button></ion-col>
         </ion-row>
       </ion-grid>
     </ion-content>

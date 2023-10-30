@@ -14,7 +14,6 @@ export class FirestoreService {
    }
 
   createDoc(){
-    this.afs.collection('Productos')
   }
   getCollection(){
     console.clear();
@@ -23,12 +22,17 @@ export class FirestoreService {
       console.log(respuesta)
     })
   }
-
   obtenerColeccion<tipo>(path:string){
     return this.afs.collection<tipo>(path).valueChanges()
   }
 
   crearID(){
     return this.afs.createId();
+  }
+  eliminarProd(id:string){
+this.afs.collection('Productos').doc(id).delete();
+  }
+  modificarProd(id:string, data:any){
+    this.afs.collection('Productos').doc(id).update(data)
   }
 }

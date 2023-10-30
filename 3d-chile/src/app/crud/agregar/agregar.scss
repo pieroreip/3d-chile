@@ -50,3 +50,12 @@ ion-content {
     --background: url('https://e7.pngegg.com/pngimages/710/241/png-transparent-dark-black-abstract-background-thumbnail.png') ;
    
   }
+.fondo-card{
+  --background:var(--fondo-oscuro);
+}
+.fondo-card ion-card-title{
+  color:aliceblue;
+}
+.agregarBoton{
+  color:green;
+}

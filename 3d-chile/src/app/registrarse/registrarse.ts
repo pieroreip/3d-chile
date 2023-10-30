@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../services/auth.service';
-import { AlertController } from '@ionic/angular';
+import { AlertController, NavController } from '@ionic/angular';
 
 // Asegúrate de ajustar la ruta si es necesario
 // @ts-ignore
@@ -27,11 +27,15 @@ export class RegistrarsePage implements OnInit {
   // Mensaje de error
   errorMessage: string = '';
 
-  constructor(private authService: AuthService, private alertController : AlertController) { }
+  constructor(private authService: AuthService, private alertController : AlertController, private nav: NavController) { }
 
   ngOnInit(): void {
     // Código que quieres que se ejecute al inicializar la página
     // Si no hay necesidad de ejecutar algo específico al iniciar, puedes dejarlo vacío
+  }
+
+  volver(){
+    this.nav.back();
   }
 
   async register() {

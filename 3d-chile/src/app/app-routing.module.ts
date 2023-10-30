@@ -23,15 +23,6 @@ const routes: Routes = [
     loadChildren: () => import('./crud/listar/modulo').then( m => m.ListarPageModule)
   },
   {
-    path: 'menu/eliminar',
-    loadChildren: () => import('./crud/eliminar/modulo').then( m => m.EliminarPageModule)
-  },
-  {
-    path: 'menu/modificar',
-    loadChildren: () => import('./crud/modificar/modulo').then( m => m.ModificarPageModule)
-  },
-  
-  {
     path: 'menu',
     loadChildren: () => import('./menu/modulo').then( m => m.MenuPageModule)
   },

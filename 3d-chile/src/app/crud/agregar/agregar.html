@@ -1,7 +1,7 @@
 <ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title class="texto" style="text-align: center;">Agregar</ion-title>
-    <ion-button color="dark" expand="block" fill="outline" (click)="volver()">Volver</ion-button>
+  <ion-toolbar style="--background:var(--fondo-oscuro)">
+    <ion-title class="texto" style="text-align: center; color: aliceblue;">Agregar</ion-title>
+    <ion-button expand="block" fill="outline" (click)="volver()" style="--color:white; --border-color:white;">Volver</ion-button>
   </ion-toolbar>
 
 </ion-header>
@@ -14,13 +14,13 @@
     </ion-toolbar>
   </ion-header>
   <ion-content >
-    <ion-card>
+    <ion-card class="fondo-card">
       <ion-card-header >
         <ion-card-title style="text-align: center;">Agregar Producto</ion-card-title>
         
       </ion-card-header>
-      <ion-card-content>
-        <ion-list>
+      <ion-card-content >
+        <ion-list style="background:var(--fondo-oscuro);">
           <div>
            <div  class="ion-text-center"><ion-label style="font-size: 12px; " >Nombre Del Producto</ion-label></div> 
            <ion-input label-placement="floating" fill="outline" [(ngModel)]="data.nombre"></ion-input>

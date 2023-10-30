@@ -30,4 +30,29 @@
   display: flex;
   justify-content: space-between;
 }
+.contenido-color{
+  --background:var(--fondo-oscuro);
+}
 
+h1,h2,h4{
+  color: white;
+}
+ion-menu ion-toolbar{
+  ion-title{
+    color: aliceblue;
+  }
+  --background:var(--fondo-oscuro);
+}
+.menu-content{
+  --background:rgb(43, 43, 43);
+}
+
+.item-color{
+  ion-label{
+    color: aliceblue;
+  }
+  --background:var(--fondo-oscuro);
+}
+.acordeon{
+  background:var(--fondo-oscuro);
+}

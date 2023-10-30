@@ -1,7 +1,8 @@
 <ion-header [translucent]="true">
-    <ion-toolbar>
-        <ion-title class="texto" style="text-align: center;">Listar</ion-title>
-        <ion-button color="dark" expand="block" fill="outline" (click)="volver()">Volver</ion-button>
+    <ion-toolbar style="--background:var(--fondo-oscuro);">
+        <ion-title class="texto" style="text-align: center; color: aliceblue;">Listar</ion-title>
+        <ion-button expand="block" fill="outline" (click)="volver()" style="--color:white;
+      ">Volver</ion-button>
       
     </ion-toolbar>
   </ion-header>
@@ -14,15 +15,17 @@
     </ion-header>
   
         <!-- Primer elemento de la lista -->
-      <ion-list *ngFor="let x of productos">
+      <ion-list >
         <ion-item-group>
-          <ion-item>
-            <div style="display: flex; flex-direction: column; text-align: center;">
+          <ion-item *ngFor="let x of productos">
+            <div>
               <h1><strong>{{x.nombre}}</strong></h1>
   
   
               <p>{{x.descripcion}}</p>
-              <p><strong>{{x.precio}}</strong></p>
+              <p><strong>${{x.precio}}</strong></p>
+              <ion-button (click)="eliminarProducto(x)">Eliminar</ion-button>
+              <ion-button >modificar</ion-button>
             </div>
             
           </ion-item>

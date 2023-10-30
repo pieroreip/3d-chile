@@ -1,12 +1,12 @@
 
-<ion-content>
+<ion-content class="contenido-color">
   <ion-menu side="end" contentId="main-content">
     <ion-header>
       <ion-toolbar>
         <ion-title class="ion-text-center">CONTENIDOS</ion-title>
       </ion-toolbar>
     </ion-header>
-    <ion-content class="ion-padding">
+    <ion-content class="ion-padding menu-content">
       <ion-grid>
         <ion-row>
         <ion-col size="12">
@@ -32,8 +32,8 @@
 
 
           <ion-accordion-group>
-            <ion-accordion value="first">
-              <ion-item slot="header" color="light">
+            <ion-accordion value="first" class="acordeon">
+              <ion-item slot="header" class="item-color">
                 <ion-label>Sesion</ion-label>
               </ion-item>
               <div class="ion-padding" slot="content">
@@ -52,8 +52,8 @@
               </ion-button></div>
             </ion-accordion>
 
-            <ion-accordion value="second" style="margin-top: 20px;">
-              <ion-item slot="header" color="light">
+            <ion-accordion value="second" style="margin-top: 20px;" class="acordeon">
+              <ion-item slot="header" class="item-color">
                 <ion-label>Administracion</ion-label>
               </ion-item>
               <div class="ion-padding" slot="content">
@@ -82,19 +82,25 @@
         </ion-avatar>
         <h2>3D-GALLERY</h2>
         <ion-buttons>
-          <ion-menu-button></ion-menu-button>
+          <ion-menu-button style="color:aliceblue"></ion-menu-button>
         </ion-buttons>
       </div>
 
 
     </ion-header>
-    <ion-content class="ion-padding"><H1 class="ion-text-center">3D-GALLERY LO MEJOR...</H1>
+    <ion-content class="ion-padding contenido-color"><H1 class="ion-text-center">3D-GALLERY LO MEJOR...</H1>
     
-      <h4 class="ion-text-center" style="margin-top: 150px;">Piero Valdes (backend)</h4>
-      <h4 class="ion-text-center">Enzo Sabattini (backend)</h4>
-      <h4 class="ion-text-center">Brandon diaz (frontend)</h4>
-      <h4 class="ion-text-center">Darikxon Salvo (diseñador)</h4>
-
+      <ion-card>
+        <img alt="Silhouette of mountains" src="https://ionicframework.com/docs/img/demos/card-media.png" />
+        <ion-card-header>
+          <ion-card-title>Card Title</ion-card-title>
+          <ion-card-subtitle>Card Subtitle</ion-card-subtitle>
+        </ion-card-header>
+      
+        <ion-card-content>
+          Here's a small text description for the card content. Nothing more, nothing less.
+        </ion-card-content>
+      </ion-card>
     </ion-content>
   </div>
 </ion-content>
