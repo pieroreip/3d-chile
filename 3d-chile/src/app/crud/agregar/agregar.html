@@ -1,6 +1,14 @@
 <ion-header [translucent]="true">
   <ion-toolbar style="--background:var(--fondo-oscuro)">
-    <ion-title class="texto" style="text-align: center; color: aliceblue;">Agregar</ion-title>
+    <div style="display: flex; justify-content: center;">
+      <ion-fab-button color="tertiary" href="/home">
+        <ion-icon name="home"></ion-icon>
+      </ion-fab-button>
+      <ion-title class="texto" style="text-align: center; color: aliceblue;">Agregar</ion-title>
+      <ion-fab-button color="medium" href="/menu/listar">
+        <ion-icon name="ellipsis-vertical-outline"></ion-icon>
+      </ion-fab-button>
+    </div>
     <ion-button expand="block" fill="outline" (click)="volver()" style="--color:white; --border-color:white;">Volver</ion-button>
   </ion-toolbar>
 

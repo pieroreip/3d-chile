@@ -115,7 +115,7 @@ $app-theme: mat.define-light-theme((
   --fondo-oscuro: rgb(27, 27, 27);
 }
 
-@media (prefers-color-scheme: light) {
+@media (prefers-color-scheme: dark) {
   /*
    * Dark Colors
    * -------------------------------------------
