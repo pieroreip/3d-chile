@@ -13,6 +13,7 @@ export class MenuPage implements OnInit{
     }
     ngOnInit() {}
 
+    //funcion para volver a la pagina anterior
     volver(){
         this.navCtrl.back()
       }

@@ -22,25 +22,21 @@ const routes: Routes = [
   },
   {
     path: 'menu/agregar',
-    loadChildren: () => import('./crud/agregar/modulo').then( m => m.AgregarPageModule),...canActivate(adminOnly)
+    loadChildren: () => import('./crud/agregar/modulo').then( m => m.AgregarPageModule),...canActivate(adminOnly), canActivate:[AngularFireAuthGuard]
   },
   {
     path: 'menu/listar',
-    loadChildren: () => import('./crud/listar/modulo').then( m => m.ListarPageModule),...canActivate(adminOnly)
+    loadChildren: () => import('./crud/listar/modulo').then( m => m.ListarPageModule),...canActivate(adminOnly), canActivate:[AngularFireAuthGuard]
   },
   {
     path: 'menu',
-    loadChildren: () => import('./menu/modulo').then( m => m.MenuPageModule),...canActivate(adminOnly)
+    loadChildren: () => import('./menu/modulo').then( m => m.MenuPageModule),...canActivate(adminOnly), canActivate:[AngularFireAuthGuard]
   },
 
   {
     path: '',
     redirectTo: 'home',
     pathMatch: 'full'
-  },
-  {
-    path: 'prueba',
-    loadChildren: () => import('./prueba/prueba.module').then( m => m.PruebaPageModule)
   },
 ];
 

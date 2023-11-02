@@ -11,10 +11,12 @@ import { AlertController } from '@ionic/angular';
     styleUrls:['./agregar.scss']
 })
 export class AgregarPage implements OnInit{
+
     constructor(public navCtrl:NavController, private database: FirestoreService, public altCtrl:AlertController){
 
     }
 
+//variable para generar posteriormente un alert
     alertError={
       header: `Error`,
       subHeader: `Campos no rellenados`,
@@ -22,6 +24,7 @@ export class AgregarPage implements OnInit{
       buttons: ['De nuevo'],
     };
 
+    //funcion parametrizada para alert, alert con los datos del producto agregado
     alertMensaje(data:any){
       return {
         
@@ -42,9 +45,14 @@ export class AgregarPage implements OnInit{
         
       }
     }
+
+    //funcion para volver a la pagina anterior
     volver(){
         this.navCtrl.back()
     }
+
+    //variable para poder usar en la funcion de crearDocumento()
+    //sirve para obtener los datos de los input
     data:Producto={
         nombre:'',
         descripcion:'',
@@ -52,51 +60,56 @@ export class AgregarPage implements OnInit{
         id:''
       }
     
+      //variable array con instancia del modelo "Producto",  para almacenar los productos de la base de datos
       productos:Producto[]=[];
     
-    
+      //inicializador
       ngOnInit() {
         this.getProductos();
       }
+
+      //funcion para poder agregar un producto
       async crearDocumento(){
-        console.log(this.data)
-        /*
-        const producto:Producto={
-          nombre:'Among us',
-          descripcion:'Sus producto',
-          precio:15000
-        }
-        */
+
+        //condicion para poder agregar un producto
         if(this.data.nombre!='' && this.data.descripcion!='' && this.data.precio>0){
+
+          //creador de id para el documento que se creara para almacenar el producto agregado
           const id=this.database.crearID();
-    
+          
+          //almacenar la creacion de id en la varibale data(id)
           this.data.id=id;
-      
+          
+          //se llama la funcion de firestore para generar un documento para almacenar el producto
           this.database.crearDocumento(this.data,'Productos',id);
-          console.log('ola se guardo');
-  
-  
-  
-  
+          
+          //creacion de alert para poder avisar de que se agrego un producto
           const alert= await this.altCtrl.create(this.alertMensaje(this.data))
           await alert.present();
+
+          //se llama a la funcion para dejar en estado vacio los campos ya rellenados en la pagina de agregar
           this.normalState();
         }
         else{
+
+          //condicion por si los campos no fueron correctamente rellenados 
           const alert= await this.altCtrl.create(this.alertError)
           await alert.present();
         }
 
 
       }
-    
+      
+      //funcion para obtener los productos almacenados
       getProductos(){
         this.database.obtenerColeccion<Producto>('Productos').subscribe(prod=>{
-          console.log(prod);
+
+          //almacenar los productos a la variable productos
           this.productos=prod;
         })
       }
 
+      //funcion para dejar en estado vacio los campos de ingreso de datos
       normalState(){
         this.data={
           nombre:'',

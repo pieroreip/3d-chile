@@ -1,5 +1,7 @@
 
 <ion-content class="contenido-color">
+
+  <!--Menu para almacenar las funciones de la aplicacion-->
   <ion-menu side="end" contentId="main-content">
     <ion-header>
       <ion-toolbar>
@@ -55,7 +57,7 @@
               </ion-button></div>
 
               <div class="ion-padding" slot="content" *ngIf="usuarioIniciado==true">
-                <ion-button expand="block" color="dark" (click)="cerrar()">
+                <ion-button expand="block" color="dark" (click)="cerrarSesion()">
 
                   <ion-icon slot="start" name="log-out-outline"></ion-icon>
                 Cerrar sesion
@@ -83,7 +85,10 @@
       </ion-grid>
     </ion-content>
   </ion-menu>
+
+  <!--Contenido de la pagina-->
   <div class="ion-page" id="main-content" style="box-shadow: 10px 5px 5px black;">
+    <!--Header de la pagina-->
     <ion-header>
 
       <div class="d-flex " style="padding-top: 35px;">
@@ -100,8 +105,8 @@
 
     </ion-header>
     <ion-content class="ion-padding contenido-color"><H1 class="ion-text-center">3D-GALLERY LO MEJOR...</H1>
-      <h2 *ngIf="usuarioIniciado==true">{{usuario}}</h2>
     
+      <!--Listado de los productos-->
       <ion-card *ngFor="let x of productos">
         <img alt="Silhouette of mountains" src="https://ionicframework.com/docs/img/demos/card-media.png" />
         <ion-card-header>

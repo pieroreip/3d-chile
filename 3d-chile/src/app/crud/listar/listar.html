@@ -1,3 +1,4 @@
+<!--Header de la pagina-->
 <ion-header [translucent]="true">
     <ion-toolbar style="--background:var(--fondo-oscuro);">
       <div style="display: flex; justify-content: center;">
@@ -16,6 +17,8 @@
     </ion-toolbar>
   </ion-header>
   
+
+  <!--Ios header-->
   <ion-content [fullscreen]="true">
     <ion-header collapse="condense">
       <ion-toolbar>
@@ -23,7 +26,7 @@
       </ion-toolbar>
     </ion-header>
   
-        <!-- Primer elemento de la lista -->
+        <!-- Listado de productos -->
       <ion-list >
         <ion-item-group>
           <ion-item *ngFor="let x of productos">

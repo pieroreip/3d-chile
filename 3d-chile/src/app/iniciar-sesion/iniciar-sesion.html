@@ -1,9 +1,11 @@
+<!--Header de la pagina-->
 <ion-header [translucent]="true">
     <ion-toolbar class="cabeza">
-      <ion-button fill="clear" slot="start" (click)="volver()"><<<</ion-button>
+      <ion-button fill="clear" slot="start" (click)="volver()"><</ion-button>
     </ion-toolbar>
   </ion-header>
 
+  <!--Contenido de la pagina-->
   <ion-content [fullscreen]="true">
     <div class="fondo">
       <div class="logo">
@@ -12,9 +14,11 @@
       <form (ngSubmit)="iniciar_sesion()">
       <div class="envoltura">
 
-
+        <!--Contenido para poder iniciar sesion-->
         <ion-list class="lista">
           <h1 style="color: aliceblue;">INICIAR SESION</h1>
+
+          <!--Inputs requeridos para iniciar sesion-->
           <ion-item class="item1">
             <ion-input [(ngModel)]="email" type="email" name="email" placeholder="email@domain.com" required class="boton"></ion-input>
           </ion-item>
@@ -29,8 +33,6 @@
             <ion-button shape="round" color="dark" type="submit">Ingresar</ion-button>
           </div>
         </ion-list>
-
-
 
       </div>
     </form>

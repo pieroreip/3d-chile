@@ -2,8 +2,7 @@ import { Component,OnInit } from '@angular/core';
 import { FirestoreService } from '../services/firestore.service';
 import { Producto } from '../modelo/producto';
 import { AuthService } from '../services/auth.service';
-import { getAuth, onAuthStateChanged } from "firebase/auth";
-import { NavController } from '@ionic/angular';
+import { AlertController } from '@ionic/angular';
 @Component({
   selector: 'app-home',
   templateUrl: 'home.page.html',
@@ -11,33 +10,59 @@ import { NavController } from '@ionic/angular';
 })
 export class HomePage implements OnInit{
 
-  productos:Producto[]=[];
-  usuario:string='';
-  usuarioIniciado:boolean=false;
-  usuarioAdmin:boolean=false;
-  constructor(private database:FirestoreService, private auth:AuthService) {}
+  productos:Producto[]=[]; //variable array con instancia de Producto para almacenar los productos
+  usuario:string=''; //variable para despues obtener el nombre de usuario cuando ya inicio sesion
+  usuarioIniciado:boolean=false; //variable para saber el estado de si el usuario ha iniciado sesion
+  usuarioAdmin:boolean=false; //variable para saber si el usuario ingresado es administrador o no
+
+  constructor(private database:FirestoreService, private auth:AuthService, private alCtrl:AlertController) {}
   
+  //inicializador
   async ngOnInit(){
     this.getProductos();
     const uid=await this.auth.getUser()
-    if(uid){
-      this.usuario=uid;
-      this.usuarioIniciado=true;
-      if(this.usuario=='admin@gmail.com'){
-        this.usuarioAdmin=true;
+    if(uid){//condicion de que exista el usuario para obtener
+      this.usuario=uid;//se agrega a la variable para su posterior uso
+      this.usuarioIniciado=true;//se cambia el estado
+      if(this.usuario=='admin@gmail.com'){//condicion para saber si la variable coincide en ser administrador
+        this.usuarioAdmin=true;//si es administrador, cambiar el estado
       }
-    }else{
-      console.log(`no existe ${this.usuarioIniciado}`)
     }
-    console.log();
-    //this.getUser();
-  }
-  
-  async cerrar(){
-   await this.auth.logOut();
   }
 
+  //variable para el segundo alert que aparece despues de confirmar el cierre sesion
+  alertConfirmacion={
+    header:'Sesion',
+    message:'Se cerró sesion exitosamente',
+    buttons:['Ok']
+  }
+
+  //funcion tipo alert para confirmar el cierre sesion
+  async cerrarSesion(){
+    const alert=await this.alCtrl.create({
+      header:'Precaucion',
+      message:'¿Estas seguro de querer cerrar sesion?',
+      buttons:[
+        {
+          text:'Si, estoy seguro',
+          handler: async ()=>{//funcion despues ce confirmar el cierre de sesion
+
+            await this.auth.logOut(); //funcion de cierre de sesion
+            const alert2= await this.alCtrl.create(this.alertConfirmacion);//creacion de segundo alert con la variable "alertConfirmacion"
+            alert2.present();//presentacion del segundo alert
+          }
+        },
+        {
+          text:'Cancelar'//por si ha cancelado la accion
+        }
+      ]
+    });
+    alert.present();
+  }
   
+
+
+  //funcion para obtencion de los productos almacenados en la base de datos
   getProductos(){
 this.database.obtenerColeccion<Producto>('Productos').subscribe((res)=>{
   this.productos=res;
