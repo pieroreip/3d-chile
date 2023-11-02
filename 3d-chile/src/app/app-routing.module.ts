@@ -1,5 +1,11 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
+import { AngularFireAuthGuard, canActivate} from '@angular/fire/compat/auth-guard';
+import { map } from 'rxjs';
+
+const uidAdmin='yLjby76aJxXSv1D4iO8tbloNp012';
+const adminOnly=()=>map( (user:any)=> !!user && user.uid===uidAdmin)
+
 
 const routes: Routes = [
   {
@@ -16,15 +22,15 @@ const routes: Routes = [
   },
   {
     path: 'menu/agregar',
-    loadChildren: () => import('./crud/agregar/modulo').then( m => m.AgregarPageModule)
+    loadChildren: () => import('./crud/agregar/modulo').then( m => m.AgregarPageModule),...canActivate(adminOnly)
   },
   {
     path: 'menu/listar',
-    loadChildren: () => import('./crud/listar/modulo').then( m => m.ListarPageModule)
+    loadChildren: () => import('./crud/listar/modulo').then( m => m.ListarPageModule),...canActivate(adminOnly)
   },
   {
     path: 'menu',
-    loadChildren: () => import('./menu/modulo').then( m => m.MenuPageModule)
+    loadChildren: () => import('./menu/modulo').then( m => m.MenuPageModule),...canActivate(adminOnly)
   },
 
   {

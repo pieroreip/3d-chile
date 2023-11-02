@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/compat/auth';  // Importación del módulo de autenticación de AngularFire
-import { AlertController } from '@ionic/angular';
+import { AlertController, NavController } from '@ionic/angular';
 
 import {getDatabase, set, ref,} from 'firebase/database';
 // @ts-ignore
@@ -13,7 +13,7 @@ export interface DocumentSnapshotExists<T> extends firebase.firestore.DocumentSn
 })
 export class AuthService {
 
-  constructor(private afAuth: AngularFireAuth, private alertController : AlertController) {}  
+  constructor(private afAuth: AngularFireAuth, private navCtrl: NavController) {}  
   
   // Inyectamos AngularFireAuth
 
@@ -47,6 +47,18 @@ export class AuthService {
 
     }
 }
+  async logOut():Promise<void>{
+    await this.afAuth.signOut();
+    this.navCtrl.navigateRoot('/iniciar')
+  }
 
+  async getUser(){
+    let user=await this.afAuth.currentUser
+    if(user){
+      return user.email
+    }else{
+      return null
+    }
+  }
   // Aquí puedes añadir más métodos como signUp, signOut, etc.
 }

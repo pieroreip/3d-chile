@@ -34,25 +34,36 @@
           <ion-accordion-group>
             <ion-accordion value="first" class="acordeon">
               <ion-item slot="header" class="item-color">
-                <ion-label>Sesion</ion-label>
+                <ion-label *ngIf="usuarioIniciado==false; else elseBlock">Sesion</ion-label>
+                  <ng-template #elseBlock>
+                    <ion-label>{{usuario}}</ion-label>
+                  </ng-template>
               </ion-item>
-              <div class="ion-padding" slot="content">
+              <div class="ion-padding" slot="content" *ngIf="usuarioIniciado==false">
                 <ion-button expand="block" color="dark" href="/iniciar">
 
                 <ion-icon slot="start" name="person-circle-outline"></ion-icon>
                 Iniciar Sesion
               
               </ion-button></div>
-              <div class="ion-padding" slot="content">
+              <div class="ion-padding" slot="content" *ngIf="usuarioIniciado==false">
                 <ion-button expand="block" color="dark" href="/registrarse">
 
                 <ion-icon slot="start" name="person-add-outline"></ion-icon>
                 Registrarse
               
               </ion-button></div>
+
+              <div class="ion-padding" slot="content" *ngIf="usuarioIniciado==true">
+                <ion-button expand="block" color="dark" (click)="cerrar()">
+
+                  <ion-icon slot="start" name="log-out-outline"></ion-icon>
+                Cerrar sesion
+              
+              </ion-button></div>
             </ion-accordion>
 
-            <ion-accordion value="second" style="margin-top: 20px;" class="acordeon">
+            <ion-accordion value="second" style="margin-top: 20px;" class="acordeon" *ngIf="usuarioAdmin">
               <ion-item slot="header" class="item-color">
                 <ion-label>Administracion</ion-label>
               </ion-item>
@@ -89,6 +100,7 @@
 
     </ion-header>
     <ion-content class="ion-padding contenido-color"><H1 class="ion-text-center">3D-GALLERY LO MEJOR...</H1>
+      <h2 *ngIf="usuarioIniciado==true">{{usuario}}</h2>
     
       <ion-card *ngFor="let x of productos">
         <img alt="Silhouette of mountains" src="https://ionicframework.com/docs/img/demos/card-media.png" />

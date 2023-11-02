@@ -38,22 +38,34 @@ export class RegistrarsePage implements OnInit {
     this.nav.back();
   }
 
+  //funcion para poder registarse, gracias a funciones de firebase
   async register() {
+    //funcion para poder obtener resultado boolean
     const result = await this.authService.signUp(this.email, this.password);
+
+    //variable para poder ser personalizada en el alert
     let mensaje = "";
 
+
+    
     if (result !== true) {
       this.errorMessage = result;
-      mensaje = "malin bombin";
+      mensaje = "Error en los campos";
     } else {
-      mensaje = "wenin";
+      mensaje = "Bienvenido";
     }
-
+    //creacion de alert
     const alert = await this.alertController.create({
-      header: 'Alert',
-      subHeader: 'Important message',
+      header: 'Sesion',
       message: mensaje,
-      buttons: ['OK'],
+      buttons: [{
+        text:'Ok',
+        handler:()=>{
+          if(result){
+            this.nav.navigateRoot('/iniciar')
+          }
+        }
+      }],
     });
 
     await alert.present();
