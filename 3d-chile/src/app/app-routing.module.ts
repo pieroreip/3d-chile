@@ -35,7 +35,7 @@ const routes: Routes = [
 
   {
     path: '',
-    redirectTo: 'prueba',
+    redirectTo: 'home',
     pathMatch: 'full'
   },
   {

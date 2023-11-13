@@ -10,6 +10,8 @@ import { FirestorageService } from 'src/app/services/firestorage.service';
     styleUrls:['./listar.scss']
 })
 export class ListarPage implements OnInit{
+
+    imagen:any;
     constructor(private altCtrl:AlertController,public navCtrl:NavController, private database : FirestoreService, public storage:FirestorageService){
 
     }
@@ -103,5 +105,13 @@ export class ListarPage implements OnInit{
       
       alert.present();
       //presentacion del alert
+    }
+
+    seleccionarImagen(event:any){
+      this.imagen=event.target.files[0];
+    }
+
+    modificarImagen(prod:Producto){
+      this.storage.subirImagen(this.imagen,prod,'Productos',prod.id);
     }
 }

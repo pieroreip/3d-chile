@@ -1,0 +1,21 @@
+.paraimagen{
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 150px;
+    width: 150px;
+    background-color: aliceblue;
+    border-radius: 15px;
+    border: 2px solid var(--fondo-oscuro);
+}
+.input-imagen{
+    border-radius: 10px;
+    width: 75%;
+    border:solid 2px var(--fondo-oscuro);
+    padding: 10px;
+}
+.img{
+    height: auto;
+    max-height: 100%;
+}

@@ -31,13 +31,27 @@
         <ion-item-group>
           <ion-item *ngFor="let x of productos">
             <div>
+              <div class="paraimagen">
+                <img src="{{x.imagen}}" class="img">
+              </div>
               <h1><strong>{{x.nombre}}</strong></h1>
   
-  
+              
               <p>{{x.descripcion}}</p>
               <p><strong>${{x.precio}}</strong></p>
               <ion-button color="danger" (click)="eliminarProducto(x)">Eliminar</ion-button>
               <ion-button color="success" (click)="modificarProducto(x)">modificar</ion-button>
+              <ion-accordion-group>
+                <ion-accordion value="{{x.id}}">
+                  <ion-item slot="header">
+                    <ion-label>Modificar imagen</ion-label>
+                  </ion-item>
+                  <div class="ion-padding" slot="content">
+                    <input type="file" class="input-imagen" (change)="seleccionarImagen($event)"> 
+                    <ion-button style="margin-top: 10px;" (click)="modificarImagen(x)">Modificar imagen</ion-button>     
+                  </div>
+                </ion-accordion>  
+              </ion-accordion-group>
             </div>
             
           </ion-item>
