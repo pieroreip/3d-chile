@@ -12,15 +12,17 @@ import { FirestorageService } from 'src/app/services/firestorage.service';
 export class ListarPage implements OnInit{
 
     imagen:any;
+    textoPredeterminado:string='Elige una imagen';
+    nombreImagen:string=this.textoPredeterminado;
     constructor(private altCtrl:AlertController,public navCtrl:NavController, private database : FirestoreService, public storage:FirestorageService){
 
     }
 
     //crecion de alert para mostrar la accion realizada
-    alertConfirmacion(accion:string){
+    alertConfirmacion(objeto:string,accion:string){
       return {
         header:'Exitoso',
-        message:`Producto ${accion} exitosamente!`,
+        message:`${objeto} ${accion} exitosamente!`,
         buttons:['Ok']
       }
     }
@@ -60,7 +62,7 @@ export class ListarPage implements OnInit{
                 //creacion de funcion para eliminar el producto gracias al boton de eleccion
                 this.storage.eliminarImagen(prod.id);
                 this.database.eliminarProd(prod.id);
-                const alert2=await this.altCtrl.create(this.alertConfirmacion('eliminado'));
+                const alert2=await this.altCtrl.create(this.alertConfirmacion('Producto','eliminado'));
                 alert2.present();
               }
             },
@@ -75,7 +77,12 @@ export class ListarPage implements OnInit{
 
       //funcion para poder modificar el producto
     async modificarProducto(prod:Producto){//parametro con la instancia de ser un objeto
-
+      let datosComparacion={
+        nombre:prod.nombre,
+        descripcion:prod.descripcion,
+        precio:prod.precio,
+        id:prod.id
+      }
       //creacion de alert para poder ingresar los datos a cambiar
       const alert=await this.altCtrl.create({
         header:`Modificar producto(${prod.nombre})`,
@@ -87,14 +94,19 @@ export class ListarPage implements OnInit{
         buttons:[
           {
             text:'Modificar',
-            handler:(res)=>{// creacion de funcion para poder modificar el producto
+            handler:async (res)=>{// creacion de funcion para poder modificar el producto
               let datos={//toma los datos de los inputs ddl alert creado
                 nombre:res.nombre,
                 descripcion:res.desc,
                 precio:parseInt(res.precio),
                 id:prod.id
               }
-              this.database.modificarProd(prod.id,datos);//ingresa los datos a la funcion para poder actualizar la info del producto
+              if(datosComparacion!==datos){
+                this.database.modificarProd(prod.id,datos);
+                const alert2=await this.altCtrl.create(this.alertConfirmacion('Producto','modificado'));
+                alert2.present();
+              }
+              //ingresa los datos a la funcion para poder actualizar la info del producto
             }
           },
           {
@@ -109,9 +121,43 @@ export class ListarPage implements OnInit{
 
     seleccionarImagen(event:any){
       this.imagen=event.target.files[0];
+      console.clear();
+      this.nombreImagen=this.imagen.name;
+      console.log(this.imagen.name);
     }
 
-    modificarImagen(prod:Producto){
-      this.storage.subirImagen(this.imagen,prod,'Productos',prod.id);
+    async modificarImagen(prod:Producto){
+      if(this.nombreImagen!=this.textoPredeterminado){
+        const alert=await this.altCtrl.create({
+          header:'Precaucion',
+          subHeader:'Confirmar accion',
+          message:'¿Seguro que quieres modificar la imagen?',
+          buttons:[
+            {
+              text:'Modificar',
+              handler:async ()=>{
+                const alert2=await this.altCtrl.create(this.alertConfirmacion('Imagen','modificada'));
+                alert2.present();
+                this.storage.subirImagen(this.imagen,prod,'Productos',prod.id);
+                this.nombreImagen=this.textoPredeterminado;
+              }
+            },
+            {
+              text:'Cancelar'
+            }
+          ]
+        });
+        alert.present();
+      }else{
+        const alert=await this.altCtrl.create({
+          header:'Error',
+          message:'Debes seleccionar una imagen para poder modificar',
+          buttons:['Ok']
+        });
+        alert.present();
+      }
+      
+
+      
     }
 }

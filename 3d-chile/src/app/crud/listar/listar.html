@@ -47,7 +47,8 @@
                     <ion-label>Modificar imagen</ion-label>
                   </ion-item>
                   <div class="ion-padding" slot="content">
-                    <input type="file" class="input-imagen" (change)="seleccionarImagen($event)"> 
+                    <input type="file" class="input-imagen" (change)="seleccionarImagen($event)">
+                    <p>{{nombreImagen}}</p>
                     <ion-button style="margin-top: 10px;" (click)="modificarImagen(x)">Modificar imagen</ion-button>     
                   </div>
                 </ion-accordion>  

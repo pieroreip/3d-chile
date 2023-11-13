@@ -22,11 +22,11 @@ const routes: Routes = [
   },
   {
     path: 'menu/agregar',
-    loadChildren: () => import('./crud/agregar/modulo').then( m => m.AgregarPageModule)
+    loadChildren: () => import('./crud/agregar/modulo').then( m => m.AgregarPageModule),...canActivate(adminOnly), canActivate:[AngularFireAuthGuard]
   },
   {
     path: 'menu/listar',
-    loadChildren: () => import('./crud/listar/modulo').then( m => m.ListarPageModule)
+    loadChildren: () => import('./crud/listar/modulo').then( m => m.ListarPageModule),...canActivate(adminOnly), canActivate:[AngularFireAuthGuard]
   },
   {
     path: 'menu',
