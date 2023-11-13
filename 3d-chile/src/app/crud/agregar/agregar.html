@@ -47,9 +47,9 @@
            </div>
            <div class="espacio">
             <div  class="ion-text-center"><ion-label style="font-size: 12px; " >Imagen Del Producto</ion-label></div> 
-              <div class="a espacio"><ion-fab-button>
-                <ion-icon name="add"  ></ion-icon>
-              </ion-fab-button></div>
+              <div class="a espacio">
+                <input type="file" (change)="imagenInput($event)" style="border: solid 2px rgb(85, 85, 85); border-radius: 5px; padding: 10px;">
+              </div>
            </div>
            <div class="espacio2">
             <div  class="ion-text-center "><ion-label style="font-size: 12px; " >Precio del Producto</ion-label></div> 

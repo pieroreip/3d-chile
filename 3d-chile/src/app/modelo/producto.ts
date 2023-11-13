@@ -2,6 +2,7 @@
 export interface Producto{
     nombre:string,
     descripcion:string,
-    precio:number
-    id:string
+    precio:number,
+    id:string,
+    imagen:string
 }

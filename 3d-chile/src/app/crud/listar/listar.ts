@@ -3,13 +3,14 @@ import { NavController } from '@ionic/angular';
 import { Producto } from 'src/app/modelo/producto';
 import { FirestoreService } from 'src/app/services/firestore.service';
 import { AlertController } from '@ionic/angular';
+import { FirestorageService } from 'src/app/services/firestorage.service';
 @Component({
     selector: 'app-listar',
     templateUrl: './listar.html',
     styleUrls:['./listar.scss']
 })
 export class ListarPage implements OnInit{
-    constructor(private altCtrl:AlertController,public navCtrl:NavController, private database : FirestoreService){
+    constructor(private altCtrl:AlertController,public navCtrl:NavController, private database : FirestoreService, public storage:FirestorageService){
 
     }
 
@@ -53,7 +54,9 @@ export class ListarPage implements OnInit{
           ,buttons:[
             {
               text:'Eliminar',
-              handler:async ()=>{ //creacion de funcion para eliminar el producto gracias al boton de eleccion
+              handler:async ()=>{ 
+                //creacion de funcion para eliminar el producto gracias al boton de eleccion
+                this.storage.eliminarImagen(prod.id);
                 this.database.eliminarProd(prod.id);
                 const alert2=await this.altCtrl.create(this.alertConfirmacion('eliminado'));
                 alert2.present();

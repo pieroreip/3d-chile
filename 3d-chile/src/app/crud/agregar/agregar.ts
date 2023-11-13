@@ -3,6 +3,7 @@ import { NavController } from '@ionic/angular';
 import { Producto } from 'src/app/modelo/producto';
 import { FirestoreService } from 'src/app/services/firestore.service';
 import { AlertController } from '@ionic/angular';
+import { FirestorageService } from 'src/app/services/firestorage.service';
 
 
 @Component({
@@ -12,7 +13,7 @@ import { AlertController } from '@ionic/angular';
 })
 export class AgregarPage implements OnInit{
 
-    constructor(public navCtrl:NavController, private database: FirestoreService, public altCtrl:AlertController){
+    constructor(public navCtrl:NavController, private database: FirestoreService, public altCtrl:AlertController,public storage:FirestorageService){
 
     }
 
@@ -57,8 +58,10 @@ export class AgregarPage implements OnInit{
         nombre:'',
         descripcion:'',
         precio:0,
-        id:''
+        id:'',
+        imagen:''
       }
+      imagen:any;
     
       //variable array con instancia del modelo "Producto",  para almacenar los productos de la base de datos
       productos:Producto[]=[];
@@ -67,7 +70,21 @@ export class AgregarPage implements OnInit{
       ngOnInit() {
         this.getProductos();
       }
+      imagenInput($event:any){
+        const file=$event.target.files[0];
+        
+        this.imagen=file;
+        /*
+        let array=this.imagen.name.split('.');
+        array[0]='fffff';
+        array.join('.');
+*/
 
+        
+        //console.log(array);
+        //this.storage.subirImagen('deprueba',this.imagen,'imagenpro');
+
+      }
       //funcion para poder agregar un producto
       async crearDocumento(){
 
@@ -80,8 +97,16 @@ export class AgregarPage implements OnInit{
           //almacenar la creacion de id en la varibale data(id)
           this.data.id=id;
           
+          //this.data.imagen=await this.storage.subirImagen(this.data.id,this.imagen);
+
+
+          this.storage.subirImagen(this.imagen,this.data,'Productos',this.data.id);
+          
+          
           //se llama la funcion de firestore para generar un documento para almacenar el producto
-          this.database.crearDocumento(this.data,'Productos',id);
+          //this.database.crearDocumento(this.data,'Productos',id);
+
+
           
           //creacion de alert para poder avisar de que se agrego un producto
           const alert= await this.altCtrl.create(this.alertMensaje(this.data))
@@ -115,7 +140,8 @@ export class AgregarPage implements OnInit{
           nombre:'',
           descripcion:'',
           precio:0,
-          id:''
+          id:'',
+          imagen:''
         }
             }
 }

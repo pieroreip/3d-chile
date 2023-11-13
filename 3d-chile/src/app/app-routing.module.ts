@@ -22,11 +22,11 @@ const routes: Routes = [
   },
   {
     path: 'menu/agregar',
-    loadChildren: () => import('./crud/agregar/modulo').then( m => m.AgregarPageModule),...canActivate(adminOnly), canActivate:[AngularFireAuthGuard]
+    loadChildren: () => import('./crud/agregar/modulo').then( m => m.AgregarPageModule)
   },
   {
     path: 'menu/listar',
-    loadChildren: () => import('./crud/listar/modulo').then( m => m.ListarPageModule),...canActivate(adminOnly), canActivate:[AngularFireAuthGuard]
+    loadChildren: () => import('./crud/listar/modulo').then( m => m.ListarPageModule)
   },
   {
     path: 'menu',
@@ -35,9 +35,14 @@ const routes: Routes = [
 
   {
     path: '',
-    redirectTo: 'home',
+    redirectTo: 'prueba',
     pathMatch: 'full'
   },
+  {
+    path: 'prueba',
+    loadChildren: () => import('./prueba/prueba.module').then( m => m.PruebaPageModule)
+  },
+
 ];
 
 @NgModule({
