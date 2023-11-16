@@ -35,24 +35,40 @@
 }
 
 h1,h2,h4{
-  color: white;
+  color: aliceblue;
 }
-ion-menu ion-toolbar{
-  ion-title{
-    color: aliceblue;
-  }
+ion-menu {
   --background:var(--fondo-oscuro);
 }
+
+ion-toolbar{
+  --background:var(--fondo-oscuro);
+}
+
 .menu-content{
-  --background:rgb(43, 43, 43);
+  --background: black;
 }
 
 .item-color{
-  ion-label{
-    color: aliceblue;
-  }
+
   --background:var(--fondo-oscuro);
 }
 .acordeon{
   background:var(--fondo-oscuro);
+}
+
+.hola{
+  background-color: #000000;
+}
+
+.texto{
+  color:aliceblue;
+}
+
+
+.butonsito{
+  display: flex;
+  margin-top: 20px;
+  --background: #8c8c8c;
+  color: aliceblue;
 }

@@ -2,12 +2,10 @@
 <ion-content class="contenido-color">
 
   <!--Menu para almacenar las funciones de la aplicacion-->
-  <ion-menu side="end" contentId="main-content">
-    <ion-header>
-      <ion-toolbar>
+  <ion-menu side="end" contentId="main-content" mode="md"  >
+      <ion-toolbar style="padding-top: 8px;">
         <ion-title class="ion-text-center">CONTENIDOS</ion-title>
       </ion-toolbar>
-    </ion-header>
     <ion-content class="ion-padding menu-content">
       <ion-grid>
         <ion-row>
@@ -46,14 +44,14 @@
 
                 <ion-icon slot="start" name="person-circle-outline"></ion-icon>
                 Iniciar Sesion
-              
+
               </ion-button></div>
               <div class="ion-padding" slot="content" *ngIf="usuarioIniciado==false">
                 <ion-button expand="block" color="dark" href="/registrarse">
 
                 <ion-icon slot="start" name="person-add-outline"></ion-icon>
                 Registrarse
-              
+
               </ion-button></div>
 
               <div class="ion-padding" slot="content" *ngIf="usuarioIniciado==true">
@@ -61,7 +59,7 @@
 
                   <ion-icon slot="start" name="log-out-outline"></ion-icon>
                 Cerrar sesion
-              
+
               </ion-button></div>
             </ion-accordion>
 
@@ -73,11 +71,11 @@
                 <ion-button expand="block" color="dark" href="/menu">
 
                 <ion-icon slot="start" name="grid-outline"></ion-icon>
-                
+
                 Menu
-              
+
               </ion-button></div>
-              
+
             </ion-accordion>
           </ion-accordion-group>
         </ion-col>
@@ -87,11 +85,11 @@
   </ion-menu>
 
   <!--Contenido de la pagina-->
-  <div class="ion-page" id="main-content" style="box-shadow: 10px 5px 5px black;">
+  <div class="ion-page" id="main-content" style="box-shadow: 10px 5px 5px black; background-color: #D9D9D9;">
     <!--Header de la pagina-->
     <ion-header>
 
-      <div class="d-flex " style="padding-top: 35px;">
+      <div class="d-flex " style="padding-top: 35px; background-color: black;">
         <ion-avatar style="height: 50px;
         width: 50px;">
           <img alt="Silhouette of a person's head" src="https://ionicframework.com/docs/img/demos/avatar.svg" />
@@ -104,22 +102,23 @@
 
 
     </ion-header>
-    <ion-content class="ion-padding contenido-color"><H1 class="ion-text-center">3D-GALLERY LO MEJOR...</H1>
-    
+
+    <ion-content class="ion-padding contenido-color"><H1 class="ion-text-center" style="color: black;" >MODELOS</H1>
+
       <!--Listado de los productos-->
-      <ion-card *ngFor="let x of productos">
-        <div style="display: flex; justify-content: center; margin-top:5px ;">
-          <img alt="Silhouette of mountains" src="{{x.imagen}}" />
-        </div>
-        
-        <ion-card-header>
-          <ion-card-title>{{x.nombre}}</ion-card-title>
-          <ion-card-subtitle>${{x.precio}}</ion-card-subtitle>
+      <ion-card *ngFor="let x of productos" mode="md" style="margin-top: 50px; " class="hola" >
+          <img style="width: 100vh; "  src="{{x.imagen}}" />
+
+
+        <ion-card-header >
+          <ion-card-title class="ion-text-center texto">{{x.nombre}}</ion-card-title>
+          <ion-card-subtitle class="texto ion-text-center">${{x.precio}}</ion-card-subtitle>
         </ion-card-header>
-      
+
         <ion-card-content>
-          {{x.descripcion}}
+          <ion-button class="butonsito"> Ver </ion-button>
         </ion-card-content>
+
       </ion-card>
     </ion-content>
   </div>
