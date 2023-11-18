@@ -3,6 +3,7 @@ import { FirestoreService } from '../services/firestore.service';
 import { Producto } from '../modelo/producto';
 import { AuthService } from '../services/auth.service';
 import { AlertController } from '@ionic/angular';
+import { LoadingController } from '@ionic/angular';
 @Component({
   selector: 'app-home',
   templateUrl: 'home.page.html',
@@ -15,7 +16,7 @@ export class HomePage implements OnInit{
   usuarioIniciado:boolean=false; //variable para saber el estado de si el usuario ha iniciado sesion
   usuarioAdmin:boolean=false; //variable para saber si el usuario ingresado es administrador o no
 
-  constructor(private database:FirestoreService, private auth:AuthService, private alCtrl:AlertController) {}
+  constructor(private database:FirestoreService, private auth:AuthService, private alCtrl:AlertController, private ldCtrl:LoadingController) {}
   
   //inicializador
   async ngOnInit(){
@@ -27,7 +28,10 @@ export class HomePage implements OnInit{
       if(this.usuario=='admin@gmail.com'){//condicion para saber si la variable coincide en ser administrador
         this.usuarioAdmin=true;//si es administrador, cambiar el estado
       }
+    }else{
+      this.cargando();
     }
+    
   }
 
   //variable para el segundo alert que aparece despues de confirmar el cierre sesion
@@ -59,7 +63,14 @@ export class HomePage implements OnInit{
     });
     alert.present();
   }
-  
+
+  async cargando(){
+    const cargando=await this.ldCtrl.create({
+      message:'Espere un momento...',
+      duration:3500
+    });
+    cargando.present();
+  }
 
 
   //funcion para obtencion de los productos almacenados en la base de datos

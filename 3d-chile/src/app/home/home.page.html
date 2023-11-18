@@ -103,7 +103,7 @@
 
     </ion-header>
 
-    <ion-content class="ion-padding contenido-color"><H1 class="ion-text-center" style="color: black;" >MODELOS</H1>
+    <ion-content class="ion-padding contenido-color"><H1 class="ion-text-center" style="color: aliceblue;" >MODELOS</H1>
 
       <!--Listado de los productos-->
       <ion-card *ngFor="let x of productos" mode="md" style="margin-top: 50px; " class="hola" >
@@ -116,10 +116,51 @@
         </ion-card-header>
 
         <ion-card-content>
-          <ion-button class="butonsito"> Ver </ion-button>
+          <ion-button class="butonsito" id="{{x.id}}"> Ver </ion-button>
         </ion-card-content>
 
+        <ion-modal #modal trigger="{{x.id}}">
+          <ng-template>
+            <ion-content>
+              <ion-header>
+                <ion-toolbar>
+                  <div class="centrar">
+                    <ion-title>{{x.nombre}}</ion-title>
+                  <ion-button (click)="modal.dismiss()">Salir</ion-button>
+                  </div>
+                  
+                </ion-toolbar>
+              </ion-header>
+
+
+              <div class="ion-padding">
+
+                <img src="{{x.imagen}}" alt="">
+                <h1>{{x.nombre}}</h1>
+                <h3>${{x.precio}}</h3>
+                <p>{{x.descripcion}}</p>
+
+                <ion-button id="pop{{x.id}}" color="warning">COMPRAR</ion-button>
+                <ion-popover trigger="pop{{x.id}}" triggerAction="click">
+                  <ng-template>
+                    <ion-content class="ion-padding">Debes tener un metodo de pago!</ion-content>
+                    <ion-button color="tertiary">Ingresar metodo de pago</ion-button>
+                  </ng-template>
+                </ion-popover>
+
+              </div>
+              
+
+            </ion-content>
+          </ng-template>
+        </ion-modal>
+
       </ion-card>
+
+      
+
+      
+
     </ion-content>
   </div>
 </ion-content>
