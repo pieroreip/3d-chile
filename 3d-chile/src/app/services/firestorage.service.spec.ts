@@ -5,7 +5,7 @@ import { FirestorageService } from './firestorage.service';
 describe('FirestorageService', () => {
   let service: FirestorageService;
 
-  beforeEach(() => {
+  beforeEach(async() => {
     TestBed.configureTestingModule({});
     service = TestBed.inject(FirestorageService);
   });

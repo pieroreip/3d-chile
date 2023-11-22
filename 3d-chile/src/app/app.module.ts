@@ -11,6 +11,7 @@ import { AngularFireStorageModule } from '@angular/fire/compat/storage';
 import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
 import { AngularFireDatabaseModule } from '@angular/fire/compat/database';
 import { environment } from '../environments/environment';
+import {MatButtonModule} from '@angular/material/button';
 
 
 import { AppComponent } from './app.component';
@@ -33,7 +34,7 @@ export interface DocumentSnapshotExists<T> extends firebase.firestore.DocumentSn
     IonicModule.forRoot(),
     AppRoutingModule,
     FormsModule,
-
+    MatButtonModule,
     // Inicialización de AngularFire y módulos relacionados
     AngularFireModule.initializeApp(environment.firebaseConfig),AngularFireDatabaseModule,
     AngularFireAuthModule,AngularFirestoreModule,AngularFireStorageModule

@@ -16,7 +16,7 @@
           </ion-button>
         </ion-col>
         <ion-col size="12" >
-          <ion-button expand="block" color="dark" >
+          <ion-button expand="block" color="dark" href="/colecciones">
             <ion-icon slot="start" name="apps-outline"></ion-icon>
             Colecciones
           </ion-button>
@@ -103,10 +103,18 @@
 
     </ion-header>
 
-    <ion-content class="ion-padding contenido-color"><H1 class="ion-text-center" style="color: aliceblue;" >MODELOS</H1>
+    <ion-content class="ion-padding contenido-color">
+      <div class="centrar">
+        <img src="https://i.gifer.com/ZalX.gif" class="img" alt="">
 
+        <h4 class="ion-text-center" style="color: aliceblue;" >MODELOS DEL MOMENTO</h4>
+
+        <img src="https://i.gifer.com/ZalX.gif" class="img" alt="">
+
+      </div>
+      
       <!--Listado de los productos-->
-      <ion-card *ngFor="let x of productos" mode="md" style="margin-top: 50px; " class="hola" >
+      <ion-card *ngFor="let x of productos" mode="md" style="margin-top: 50px; " class="hola border-amarillo" >
           <img style="width: 100vh; "  src="{{x.imagen}}" />
 
 

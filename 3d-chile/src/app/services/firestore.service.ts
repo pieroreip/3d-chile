@@ -36,4 +36,6 @@ this.afs.collection('Productos').doc(id).delete();
   modificarProd(id:string, data:any){
     this.afs.collection('Productos').doc(id).update(data)
   }
+
+  //METODOS PARA OBTENER LOS PRODUCTOS DESTACADOS...
 }
