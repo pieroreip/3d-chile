@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
-
+import { HttpClientModule } from '@angular/common/http';
 
 // Importaciones relacionadas con AngularFire
 import { AngularFireModule } from '@angular/fire/compat';
@@ -35,6 +35,7 @@ export interface DocumentSnapshotExists<T> extends firebase.firestore.DocumentSn
     AppRoutingModule,
     FormsModule,
     MatButtonModule,
+    HttpClientModule,
     // Inicialización de AngularFire y módulos relacionados
     AngularFireModule.initializeApp(environment.firebaseConfig),AngularFireDatabaseModule,
     AngularFireAuthModule,AngularFirestoreModule,AngularFireStorageModule

@@ -1,0 +1,18 @@
+.flex{
+    display: flex;
+    justify-content: space-between;
+}
+.texto{
+    color: aliceblue;
+}
+.contenido-color{
+    --background:var(--fondo-oscuro);
+}
+.pal-texto{
+    padding: 10px;
+    text-align: center;
+    border: solid 2px purple;
+    border-radius: 20px;
+    color: aliceblue;
+    background: linear-gradient(purple,red);
+}

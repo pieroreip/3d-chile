@@ -49,6 +49,10 @@ const routes: Routes = [
     path: 'agregar-coleccion',
     loadChildren: () => import('./agregar-coleccion/agregar-coleccion.module').then( m => m.AgregarColeccionPageModule)
   },
+  {
+    path: 'pokemon',
+    loadChildren: () => import('./contenidos/pokemon/pokemon.module').then( m => m.PokemonPageModule)
+  },
 
   
 

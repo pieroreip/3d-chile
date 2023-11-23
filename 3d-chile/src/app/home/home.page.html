@@ -4,11 +4,17 @@
   <!--Menu para almacenar las funciones de la aplicacion-->
   <ion-menu side="end" contentId="main-content" mode="md"  >
       <ion-toolbar style="padding-top: 8px;">
-        <ion-title class="ion-text-center">CONTENIDOS</ion-title>
+        <ion-title class="ion-text-center texto">CONTENIDOS</ion-title>
       </ion-toolbar>
     <ion-content class="ion-padding menu-content">
       <ion-grid>
         <ion-row>
+          <ion-col size="12">
+            <ion-button expand="block" color="dark" href="/pokemon">
+              <ion-icon name="flash"></ion-icon>
+              Pokemon
+            </ion-button>
+          </ion-col>
         <ion-col size="12">
           <ion-button expand="block" color="dark">
             <ion-icon slot="start" name="star"></ion-icon>
@@ -34,7 +40,7 @@
           <ion-accordion-group>
             <ion-accordion value="first" class="acordeon">
               <ion-item slot="header" class="item-color">
-                <ion-label *ngIf="usuarioIniciado==false; else elseBlock">Sesion</ion-label>
+                <ion-label *ngIf="usuarioIniciado==false; else elseBlock" class="texto">Sesion</ion-label>
                   <ng-template #elseBlock>
                     <ion-label>{{usuario}}</ion-label>
                   </ng-template>
@@ -92,7 +98,7 @@
       <div class="d-flex " style="padding-top: 35px; background-color: black;">
         <ion-avatar style="height: 50px;
         width: 50px;">
-          <img alt="Silhouette of a person's head" src="https://ionicframework.com/docs/img/demos/avatar.svg" />
+          <img alt="Silhouette of a person's head" src="../../assets/icon/avatar.png" />
         </ion-avatar>
         <h2>3D-GALLERY</h2>
         <ion-buttons>
@@ -129,11 +135,11 @@
 
         <ion-modal #modal trigger="{{x.id}}">
           <ng-template>
-            <ion-content>
+            <ion-content class="contenido-color">
               <ion-header>
                 <ion-toolbar>
                   <div class="centrar">
-                    <ion-title>{{x.nombre}}</ion-title>
+                    <ion-title class="texto">{{x.nombre}}</ion-title>
                   <ion-button (click)="modal.dismiss()">Salir</ion-button>
                   </div>
                   
@@ -141,14 +147,22 @@
               </ion-header>
 
 
-              <div class="ion-padding">
+              <div class="ion-padding bordersin centrar">
 
-                <img src="{{x.imagen}}" alt="">
-                <h1>{{x.nombre}}</h1>
-                <h3>${{x.precio}}</h3>
-                <p>{{x.descripcion}}</p>
+                <img src="{{x.imagen}}" alt="" style="border-radius: 20px;">
+              </div>
 
-                <ion-button id="pop{{x.id}}" color="warning">COMPRAR</ion-button>
+              <div class="ion-padding bordersin">
+                <h2 class="texto">Descripcion:</h2>
+                <p class="texto">{{x.descripcion}}</p>
+
+                <h3 class="texto" style="border: solid 2px grey; padding: 5px; text-align: center;
+                border-radius: 20px;
+                ">${{x.precio}} CLP</h3>
+
+                
+
+                <ion-button id="pop{{x.id}}" color="warning" expand="full">COMPRAR</ion-button>
                 <ion-popover trigger="pop{{x.id}}" triggerAction="click">
                   <ng-template>
                     <ion-content class="ion-padding">Debes tener un metodo de pago!</ion-content>

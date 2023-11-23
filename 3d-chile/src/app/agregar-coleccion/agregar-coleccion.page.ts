@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NavController } from '@ionic/angular';
 
 @Component({
   selector: 'app-agregar-coleccion',
@@ -7,9 +8,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AgregarColeccionPage implements OnInit {
 
-  constructor() { }
+  constructor(public navCtrl:NavController) { }
 
   ngOnInit() {
   }
-
+  volver(){
+    this.navCtrl.back();
+  }
 }

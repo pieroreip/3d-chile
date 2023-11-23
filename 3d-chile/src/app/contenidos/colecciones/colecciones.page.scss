@@ -2,3 +2,9 @@
     display: flex;
     justify-content: space-between;
 }
+.contenido-color{
+    --background:var(--fondo-oscuro);
+}
+.texto{
+    color:aliceblue;
+}
