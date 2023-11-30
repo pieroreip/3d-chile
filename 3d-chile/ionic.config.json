@@ -1,7 +1,9 @@
 {
   "name": "3d-chile",
   "integrations": {
-    "capacitor": {}
+    "capacitor": {
+      "enabled": false
+    }
   },
   "type": "angular"
 }
